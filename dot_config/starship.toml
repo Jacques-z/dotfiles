@@ -19,7 +19,7 @@ trim_at = "-"
 style = "bold cyan"
 truncate_to_repo = true
 truncation_length = 0
-truncation_symbol = "⛳"
+truncation_symbol = "⛺"
 
 # Fourth param
 [sudo]
