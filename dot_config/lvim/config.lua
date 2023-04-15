@@ -26,6 +26,7 @@ lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>a"
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>ggVG"
 lvim.keys.normal_mode["gx"] = "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<cr>"
+lvim.keys.insert_mode["jk"] = "<ESC>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q!<CR>"
 -- lvim.keys.insert_mode["<C-q>"] = "<ESC>:q!<CR>"
@@ -216,11 +217,11 @@ lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.rainbow.disable = { "latex" }
 lvim.builtin.treesitter.rainbow.colors = {
 	"Gold",
-	-- "Salmon",
+	"Salmon",
 	"Orchid",
 	"DodgerBlue",
-	-- "Cornsilk",
-	-- "LawnGreen",
+	"Cornsilk",
+	"LawnGreen",
 }
 
 lvim.builtin.dap.active = true
