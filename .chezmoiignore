@@ -1,2 +1,5 @@
 key.txt.age
-chezmoi
+chezmoi/
+logs/
+*.log
+
