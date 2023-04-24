@@ -163,3 +163,6 @@ end
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 alias git="LANG=fr_FR.UTF-8 /usr/bin/git"
+
+zoxide init fish | source
+
