@@ -27,7 +27,6 @@ lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>ggVG"
 lvim.keys.normal_mode["gx"] = "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<cr>"
 lvim.keys.insert_mode["jk"] = "<ESC>"
-lvim.keys.normal_mode["jk"] = "<ESC>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q!<CR>"
 -- lvim.keys.insert_mode["<C-q>"] = "<ESC>:q!<CR>"
@@ -126,6 +125,7 @@ vim.cmd([[
 vim.cmd([[
     nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 ]])
+vim.cmd("autocmd VimEnter * source ~/.config/lvim/config.lua")
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
