@@ -2,4 +2,5 @@ key.txt.age
 chezmoi/
 logs/
 *.log
+*.json.bak
 

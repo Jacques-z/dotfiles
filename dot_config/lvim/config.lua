@@ -27,6 +27,7 @@ lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>ggVG"
 lvim.keys.normal_mode["gx"] = "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<cr>"
 lvim.keys.insert_mode["jk"] = "<ESC>"
+lvim.keys.normal_mode["jk"] = "<ESC>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q!<CR>"
 -- lvim.keys.insert_mode["<C-q>"] = "<ESC>:q!<CR>"
@@ -112,6 +113,19 @@ vim.cmd([[
 	xnoremap <M-J> :t'><CR>gv
 	xnoremap <M-K> :t-1<CR>gv
 ]])
+vim.cmd([[
+	nmap f <leader><leader>f
+	nmap F <leader><leader>F
+	nmap t <leader><leader>t
+	nmap T <leader><leader>T
+]])
+vim.cmd([[
+    cnoremap <expr> <c-n> wildmenumode() ? "\<c-n>" : "\<down>"
+    cnoremap <expr> <c-p> wildmenumode() ? "\<c-p>" : "\<up>"
+]])
+vim.cmd([[
+    nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+]])
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -174,6 +188,7 @@ lvim.builtin.which_key.mappings["df"] = {
 lvim.builtin.which_key.mappings["gG"] = {
 	"<cmd>lua require('lvim.core.terminal')._exec_toggle({ cmd = 'lazygit', count = 101, direction = 'float'})<CR>",
 }
+lvim.builtin.which_key.mappings["<F5>"] = { "<cmd>UndotreeToggle<CR>", "Toggle undotree" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -443,6 +458,7 @@ lvim.plugins = {
 		end,
 	},
 	{ "easymotion/vim-easymotion" },
+	{ "mbbill/undotree" },
 }
 
 lvim.builtin.autopairs.on_config_done = function(autopairs)
