@@ -7,6 +7,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -55,6 +56,7 @@ inoremap " ""<esc>i
 inoremap ( ()<esc>i
 inoremap { {<cr>}<esc>kA
 inoremap [ []<esc>i
+inoremap jk <esc>
 ""inoremap < <><esc>i
 
 " 用 leader-w 保存文件
