@@ -195,15 +195,6 @@ lvim.builtin.which_key.mappings["<F5>"] = { "<cmd>UndotreeToggle<CR>", "Toggle u
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.start_in_insert = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.view.mappings.list = {
-	{ key = "C", action = "cd" },
-	{ key = "l", action = "edit" },
-	{ key = "u", action = "dir_up" },
-	{ key = "J", action = "" },
-	{ key = "K", action = "" },
-	{ key = "<C-t>", action = "" },
-}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -250,7 +241,7 @@ dap.defaults.fallback.external_terminal = {
 -- generic LSP settings
 
 ---@usage disable automatic installation of servers
-lvim.lsp.diagnostics.virtual_text = false
+vim.diagnostic.config({ virtual_text = false })
 -- lvim.lsp.document_highlight = false
 
 -- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
@@ -302,7 +293,7 @@ formatters.setup({
 		-- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 		args = { "--print-with", "100" },
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-		filetypes = { "typescript", "typescriptreact" },
+		-- filetypes = { "typescript", "typescriptreact" },
 	},
 	{ exe = "stylua", filetypes = { "lua" } },
 })
@@ -352,7 +343,9 @@ lvim.plugins = {
 			-- vim.g["vimtex_view_general_options_latexmk"] = "-reuse-instance"
 			-- * If in linux, use the following lines instead.
 			vim.g["vimtex_view_general_viewer"] = "zathura"
-			-- vim.g["vimtex_view_method"] = "zathura"
+			vim.g["vimtex_view_method"] = "zathura"
+			vim.g["tex_conceal"] = "abdmg"
+			vim.opt.conceallevel = 1
 			vim.g["vimtex_compiler_progname"] = "nvr"
 		end,
 	},
@@ -459,6 +452,14 @@ lvim.plugins = {
 	},
 	{ "easymotion/vim-easymotion" },
 	{ "mbbill/undotree" },
+	{ "vim-latex/vim-latex" },
+	{
+		"sirver/ultisnips",
+		config = function()
+			vim.g.UltiSnipsExpandTrigger = "<tab>"
+			vim.g.UltiSnipsJumpForwardTrigger = "<c-n>"
+		end,
+	},
 }
 
 lvim.builtin.autopairs.on_config_done = function(autopairs)
