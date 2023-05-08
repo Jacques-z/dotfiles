@@ -4,11 +4,24 @@ let mapleader="\<space>"
 " use vim-plug to control plugins
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+"Plug 'tpope/vim-fugitive'
+"Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
-
+Plug 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='general'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+"Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+let g:UltiSnipsExpandTrigger = '<tab>'
+"Plug 'vim-latex/vim-latex'
+"filetype plugin on
+"
+"filetype indent on
+"let g:tex_flavor='latex'
 call plug#end()
 
 syntax on
@@ -46,16 +59,16 @@ set foldmethod=syntax
 autocmd BufRead * normal zR
 
 " set relative number
-" set relativenumber
+set relativenumber
 
 " set clipboard=unnamedplus
 
 " set 括号配对
-inoremap ' ''<esc>i
-inoremap " ""<esc>i
-inoremap ( ()<esc>i
-inoremap { {<cr>}<esc>kA
-inoremap [ []<esc>i
+""inoremap ' ''<esc>i
+""inoremap " ""<esc>i
+""inoremap ( ()<esc>i
+""inoremap { {<cr>}<esc>kA
+""inoremap [ []<esc>i
 inoremap jk <esc>
 ""inoremap < <><esc>i
 
