@@ -1,5 +1,36 @@
 vim.cmd([[ source ~/.vim/shared.vim ]])
-vim.cmd([[ source ~/.config/nvim/nvim.vim ]])
+
+local Plug = vim.fn["plug#"]
+
+-- use vim-plug to control plugins
+vim.call("plug#begin")
+
+-- Plug 'tpope/vim-fugitive'
+Plug("easymotion/vim-easymotion")
+-- Plug 'mbbill/undotree'
+
+Plug("lervag/vimtex")
+vim.g.tex_flavor = "latex"
+vim.g.vimtex_view_method = "general"
+vim.g.vimtex_quickfix_mode = 0
+vim.g.vimtex_imaps_leader = ";"
+-- vim.opt.conceallevel = 1
+vim.g.tex_conceal = "abdmg"
+
+Plug("sirver/ultisnips")
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+
+Plug("vim-latex/vim-latex")
+-- filetype plugin on
+
+-- filetype indent on
+-- let g:tex_flavor='latex'
+
+Plug("cpea2506/one_monokai.nvim")
+Plug("nvim-treesitter/nvim-treesitter")
+Plug("jbyuki/nabla.nvim")
+vim.call("plug#end")
+
 
 require("one_monokai").setup({
 	transparent = true,

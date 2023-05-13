@@ -24,3 +24,5 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'jbyuki/nabla.nvim'
 call plug#end()
 
+source ~/.vim/shared.vim
+lua require('extra')
