@@ -35,6 +35,7 @@ lvim.keys.insert_mode["jk"] = "<ESC>"
 vim.opt.guifont = "FiraCode Nerd Font:h10"
 vim.g.neovide_transparency = 0.5
 -- vim.g.neovide_no_idle = "v:true"
+-- vim.g.maplocalleader = ";"
 
 vim.opt.wrap = true
 vim.opt.lbr = true
@@ -124,6 +125,7 @@ vim.cmd([[
 ]])
 vim.cmd([[
     nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+    nnoremap <leader>lu <Plug>vimtex-compile
 ]])
 vim.cmd("autocmd VimEnter * source ~/.config/lvim/config.lua")
 
@@ -336,17 +338,18 @@ lvim.plugins = {
 	{
 		"lervag/vimtex",
 		config = function()
-			vim.g["tex_flavor"] = "latex"
+			-- vim.g["tex_flavor"] = "latex"
+			-- vim.g["vimtex_mappings_prefix"] = "<leader>\\"
 			vim.g["vimtex_quickfix_mode"] = 0
 			-- vim.g["vimtex_view_general_viewer"] = "/mnt/c/Users/ASUS/AppData/Local/SumatraPDF/SumatraPDF.exe"
 			-- vim.g["vimtex_view_general_options"] = "-reuse-instance -forward-search @tex @line @pdf"
 			-- vim.g["vimtex_view_general_options_latexmk"] = "-reuse-instance"
 			-- * If in linux, use the following lines instead.
-			vim.g["vimtex_view_general_viewer"] = "zathura"
+			-- vim.g["vimtex_view_general_viewer"] = "okular"
 			vim.g["vimtex_view_method"] = "zathura"
 			vim.g["tex_conceal"] = "abdmg"
 			vim.opt.conceallevel = 1
-			vim.g["vimtex_compiler_progname"] = "nvr"
+			-- vim.g["vimtex_compiler_progname"] = "nvr"
 		end,
 	},
 	{
@@ -453,13 +456,14 @@ lvim.plugins = {
 	{ "easymotion/vim-easymotion" },
 	{ "mbbill/undotree" },
 	{ "vim-latex/vim-latex" },
-	{
-		"sirver/ultisnips",
-		config = function()
-			vim.g.UltiSnipsExpandTrigger = "<tab>"
-			vim.g.UltiSnipsJumpForwardTrigger = "<c-n>"
-		end,
-	},
+	-- {
+	-- 	"sirver/ultisnips",
+	-- 	config = function()
+	-- 		vim.g.UltiSnipsExpandTrigger = "<c-o>"
+	-- 		vim.g.UltiSnipsJumpForwardTrigger = "<c-n>"
+	-- 		vim.g.UltiSnipsSnippetsDir = "~/.config/lvim/"
+	-- 	end,
+	-- },
 }
 
 lvim.builtin.autopairs.on_config_done = function(autopairs)

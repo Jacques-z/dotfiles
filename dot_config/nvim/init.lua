@@ -10,6 +10,7 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
 Plug("sindrets/diffview.nvim")
 Plug("lewis6991/gitsigns.nvim")
 Plug("cpea2506/one_monokai.nvim")
+Plug("glepnir/zephyr-nvim")
 Plug("nvim-treesitter/nvim-treesitter")
 Plug("jbyuki/nabla.nvim")
 Plug("easymotion/vim-easymotion")
@@ -37,8 +38,10 @@ vim.call("plug#end")
 require("one_monokai").setup({
 	transparent = true,
 })
+-- No transparancy
+-- require("zephyr")
 
-require('gitsigns').setup()
+require("gitsigns").setup()
 
 vim.keymap.set("i", "jk", "<esc>")
 
