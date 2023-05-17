@@ -7,6 +7,8 @@ vim.g.mapleader = " "
 vim.call("plug#begin", "~/.config/nvim/plugged")
 
 -- Plug 'tpope/vim-fugitive'
+Plug("sindrets/diffview.nvim")
+Plug("lewis6991/gitsigns.nvim")
 Plug("cpea2506/one_monokai.nvim")
 Plug("nvim-treesitter/nvim-treesitter")
 Plug("jbyuki/nabla.nvim")
@@ -35,6 +37,8 @@ vim.call("plug#end")
 require("one_monokai").setup({
 	transparent = true,
 })
+
+require('gitsigns').setup()
 
 vim.keymap.set("i", "jk", "<esc>")
 
@@ -82,6 +86,6 @@ set relativenumber
 
 noremap <leader>z za
 
-autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+" autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
  
 ]])
