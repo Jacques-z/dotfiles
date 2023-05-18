@@ -1,3 +1,6 @@
+-- TODO < without cancel choose
+-- TODO read about buffer balabala
+-- TODO use lazy.vim
 local Plug = vim.fn["plug#"]
 
 -- 将先导键映射为空格键
@@ -33,6 +36,10 @@ Plug("vim-latex/vim-latex")
 
 -- filetype indent on
 -- let g:tex_flavor='latex'
+
+Plug("nvim-tree/nvim-web-devicons")
+Plug("akinsho/bufferline.nvim") -- , { 'tag': '*' })
+Plug("kylechui/nvim-surround")
 vim.call("plug#end")
 
 require("one_monokai").setup({
@@ -42,6 +49,13 @@ require("one_monokai").setup({
 -- require("zephyr")
 
 require("gitsigns").setup()
+
+vim.opt.termguicolors = true
+require("bufferline").setup{}
+
+require("nvim-surround").setup({
+    -- Configuration here, or leave empty to use defaults
+})
 
 vim.keymap.set("i", "jk", "<esc>")
 
@@ -91,4 +105,21 @@ noremap <leader>z za
 
 " autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
  
+]])
+vim.cmd([[
+	nnoremap <silent> <M-h> :BufferLineCyclePrev<CR>
+	nnoremap <silent> <M-l> :BufferLineCycleNext<CR>
+    nnoremap <silent> <M-H> :BufferLineMovePrev<CR>
+    nnoremap <silent> <M-L> :BufferLineMoveNext<CR>
+	nnoremap <silent> <M-p> :b#<CR>
+	nnoremap <silent> <M-n> :e 
+	nnoremap <silent> <M-q> :bd<CR>
+	nnoremap <silent> <M-Q> :bd!<CR>
+	inoremap <silent> <M-h> <ESC>:BufferLineCyclePrev<CR>
+	inoremap <silent> <M-l> <ESC>:BufferLineCycleNext<CR>
+	inoremap <silent> <M-p> <ESC>:b#<CR>
+	inoremap <silent> <M-n> <ESC>:enew<CR>
+	inoremap <silent> <M-q> <ESC>:bd<CR>
+	inoremap <silent> <M-Q> <ESC>:bd!<CR>
+	noremap <C-n> :vnew<CR>
 ]])
