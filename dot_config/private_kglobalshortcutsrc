@@ -2,7 +2,8 @@
 update_info=bismuth_shortcuts_category.upd:bismuth-shortcuts-category,bismuth_shortcuts_from_kwin.upd:bismuth-shortcuts-from-kwin
 
 [ActivityManager]
-_k_friendly_name=Activity Manager
+_k_friendly_name=System Settings
+switch-to-activity-94c981ea-13b6-4a01-a37e-cf4fbd89f187=,none,Switch to activity "virt"
 switch-to-activity-dec956df-321a-4188-b4e9-0506ebd7c8d2=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
@@ -64,7 +65,7 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{0b2dae22-3d82-4ca8-a720-8d68489b5f5d}=Shift+Print,none,PtrScn
+{0b2dae22-3d82-4ca8-a720-8d68489b5f5d}=Shift+Print,none,S-PtrScn
 {79d08168-618b-47ef-9de2-a1b391a2c005}=Ctrl+Alt+T,none,Run Konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
@@ -87,13 +88,13 @@ _k_friendly_name=Session Management
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Meta+Ctrl+A,Activate Window Demanding Attention
-Decrease Opacity=none,,Decrease Opacity of Active Window by 5%
+Decrease Opacity=Meta+J,,Decrease Opacity of Active Window by 5%
 Edit Tiles=Meta+T,Meta+T,Toggle Tiles Editor
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
 ExposeClassCurrentDesktop=none,none,Toggle Present Windows (Window class on current desktop)
-Increase Opacity=none,,Increase Opacity of Active Window by 5%
+Increase Opacity=Meta+K,,Increase Opacity of Active Window by 5%
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Meta+Ctrl+Esc,Kill Window
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
@@ -248,7 +249,7 @@ _k_friendly_name=Latte Dock
 activate entry 1=none,Meta+1,Activate Entry 1
 activate entry 10=none,Meta+0,Activate Entry 10
 activate entry 11=Meta+Z,Meta+Z,Activate Entry 11
-activate entry 12=Meta+X,Meta+X,Activate Entry 12
+activate entry 12=none,Meta+X,Activate Entry 12
 activate entry 13=Meta+C,Meta+C,Activate Entry 13
 activate entry 14=Meta+V,Meta+V,Activate Entry 14
 activate entry 15=Meta+B,Meta+B,Activate Entry 15
@@ -315,7 +316,7 @@ _launch=Meta+E,Meta+E,Dolphin
 NewTab=none,none,Open a New Tab
 NewWindow=none,none,Open a New Window
 _k_friendly_name=Konsole
-_launch=,Ctrl+Alt+T,Konsole
+_launch=none,Ctrl+Alt+T,Konsole
 
 [org.kde.krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
@@ -350,7 +351,7 @@ Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
 
 [plasmashell]
-_k_friendly_name=Plasma
+_k_friendly_name=Activity switching
 activate task manager entry 1=Meta+1,Meta+1,Activate Task Manager Entry 1
 activate task manager entry 10=none,Meta+0,Activate Task Manager Entry 10
 activate task manager entry 2=Meta+2,Meta+2,Activate Task Manager Entry 2
@@ -370,8 +371,8 @@ cycleNextAction=none,,Next History Item
 cyclePrevAction=none,,Previous History Item
 edit_clipboard=none,,Edit Contents…
 manage activities=Meta+Q,Meta+Q,Show Activity Switcher
-next activity=Meta+Tab,none,Walk through activities
-previous activity=Meta+Shift+Tab,none,Walk through activities (Reverse)
+next activity=Meta+Tab,Meta+Tab,Walk through activities
+previous activity=Meta+Shift+Tab,Meta+Shift+Tab,Walk through activities (Reverse)
 repeat_action=none,Meta+Ctrl+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,,Show Barcode…

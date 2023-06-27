@@ -163,6 +163,11 @@ end
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 alias git="LANG=fr_FR.UTF-8 /usr/bin/git"
+alias remove="/usr/bin/rm"
+alias rm="echo Please use remove command instead"
 
 zoxide init fish | source
 
+function x 
+    xmodmap ~/.xmodmap
+end

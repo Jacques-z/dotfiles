@@ -22,7 +22,7 @@ end
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
-lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>a"
+lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>"
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 lvim.keys.insert_mode["<C-a>"] = "<ESC>ggVG"
 lvim.keys.normal_mode["gx"] = "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<cr>"
