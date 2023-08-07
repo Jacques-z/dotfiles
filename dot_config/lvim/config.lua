@@ -97,7 +97,7 @@ vim.cmd([[
     nnoremap <silent> <M-L> :BufferLineMoveNext<CR>
 	nnoremap <silent> <M-p> :b#<CR>
 	nnoremap <silent> <M-n> :e 
-	nnoremap <silent> <M-q> :bd<CR>
+	nnoremap <silent> <M-q> :vs<CR><Bar>:bd<CR>
 	nnoremap <silent> <M-Q> :bd!<CR>
 	inoremap <silent> <M-h> <ESC>:BufferLineCyclePrev<CR>
 	inoremap <silent> <M-l> <ESC>:BufferLineCycleNext<CR>
@@ -191,6 +191,7 @@ lvim.builtin.which_key.mappings["gG"] = {
 	"<cmd>lua require('lvim.core.terminal')._exec_toggle({ cmd = 'lazygit', count = 101, direction = 'float'})<CR>",
 }
 lvim.builtin.which_key.mappings["<F5>"] = { "<cmd>UndotreeToggle<CR>", "Toggle undotree" }
+lvim.builtin.which_key.mappings["gf"] = { "<cmd>Flog<CR>", "Git Flog" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -216,9 +217,11 @@ lvim.builtin.treesitter.ensure_installed = {
 	"rust",
 	"java",
 	"yaml",
+	"vue",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+vim.filetype.add({ extension = { typ = "typst" } })
 lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.builtin.treesitter.highlight.disable = {}
 lvim.builtin.treesitter.rainbow.enable = true
@@ -453,9 +456,12 @@ lvim.plugins = {
 			})
 		end,
 	},
+	{ "kaarmu/typst.vim", ft = "typst" },
 	{ "easymotion/vim-easymotion" },
 	{ "mbbill/undotree" },
 	{ "vim-latex/vim-latex" },
+	{ "tpope/vim-fugitive" },
+	{ "rbong/vim-flog" },
 	-- {
 	-- 	"sirver/ultisnips",
 	-- 	config = function()
