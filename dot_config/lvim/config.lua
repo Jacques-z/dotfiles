@@ -218,6 +218,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"java",
 	"yaml",
 	"vue",
+	"html",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -476,9 +477,6 @@ lvim.builtin.autopairs.on_config_done = function(autopairs)
 	autopairs.remove_rule("$")
 	autopairs.remove_rule("'")
 end
-
--- * Shortcuts for plugins
-lvim.keys.normal_mode["\\p"] = "<cmd>MarkdownPreviewToggle<CR>"
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {

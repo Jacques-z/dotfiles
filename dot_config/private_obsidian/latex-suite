@@ -283,4 +283,5 @@
     {trigger: "cl", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
     {trigger: "prb", replacement: "\\textcolor{gray}{\\textbf{\\Large ${1:看不清}}}$0", options: "tA"},
     {trigger: "FF", replacement: "\\mathbb{F}", options: "mA"},
+    {trigger: "pf", replacement: "\\begin{proof}\n$0\n\\end{proof}\n", options: "tA"},
 ]
