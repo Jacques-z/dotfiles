@@ -1,9 +1,96 @@
+# Which is equivalent to
+format = """
+$username\
+$battery\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$shell\
+$jobs\
+$time\
+$status\
+$os\
+$container\
+$character"""
+
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]
 format = " [╭─$user]($style) "
 show_always = true
-style_root = "bold red"
+style_root = "bold blue"
 style_user = "bold red"
 
 # Second param
@@ -44,24 +131,21 @@ min_time = 1
 # Somethere at the beginning
 [battery]
 charging_symbol = ""
-disabled = true
+disabled = false
 discharging_symbol = ""
 full_symbol = ""
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-disabled = false
 style = "bold red"
 threshold = 15
 
 [[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
 style = "bold yellow"
 threshold = 50
 
 [[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
 style = "bold green"
-threshold = 80
+threshold = 100
 
 # Prompt: optional param 1
 [time]
