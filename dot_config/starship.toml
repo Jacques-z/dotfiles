@@ -1,6 +1,7 @@
 # Which is equivalent to
 format = """
 $username\
+$time\
 $battery\
 $hostname\
 $localip\
@@ -78,9 +79,8 @@ $sudo\
 $cmd_duration\
 $line_break\
 $shell\
-$jobs\
-$time\
 $status\
+$jobs\
 $os\
 $container\
 $character"""
@@ -149,10 +149,10 @@ threshold = 100
 
 # Prompt: optional param 1
 [time]
-disabled = true
-format = " 🕙 $time($style)\n"
+disabled = false
+format = "🕙 $time($style) "
 style = "bright-white"
-time_format = "%T"
+time_format = "%c"
 
 [shell]
 fish_indicator = ""

@@ -34,6 +34,7 @@ set tabstop=4
 set expandtab
 set autoindent
 set cursorline
+set scrolloff=2
 
 set undofile
 if !isdirectory($HOME."/.vim/undo-dir")

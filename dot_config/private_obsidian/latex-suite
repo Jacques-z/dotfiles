@@ -61,7 +61,7 @@
 
 
     // Operations
-    {trigger: "te", replacement: "\\text{$0}", options: "m"},
+    {trigger: "te", replacement: "\\text{$0}", options: "mA"},
     {trigger: "text", replacement: "\\text{$0}", options: "mA"},
     {trigger: "bf", replacement: "\\mathbf{$0}", options: "mA"},
     {trigger: "sr", replacement: "^{2}", options: "mA"},
@@ -269,8 +269,10 @@
     {trigger: "{", replacement: "{$0}$1", options: "mAw"},
     {trigger: "[", replacement: "[$0]$1", options: "mAw"},
     {trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
+    {trigger: "lrb", replacement: "\\left( $0 \\right) $1", options: "mA"},
     {trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA"},
     {trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
+    {trigger: "lrB", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
     {trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},
     {trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA"},
 
@@ -283,5 +285,12 @@
     {trigger: "cl", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
     {trigger: "prb", replacement: "\\textcolor{gray}{\\textbf{\\Large ${1:看不清}}}$0", options: "tA"},
     {trigger: "FF", replacement: "\\mathbb{F}", options: "mA"},
+    {trigger: "sb", replacement: "\\subset", options: "mA"},
     {trigger: "pf", replacement: "\\begin{proof}\n$0\n\\end{proof}\n", options: "tA"},
+    {trigger: "itm", replacement: "\\begin{itemize}\n  \\item $0\n\\end{itemize}\n", options: "tA"},
+    {trigger: "enum", replacement: "\\begin{enumerate}\n  \\item $0\n\\end{enumerate}\n", options: "tA"},
+    {trigger: "fa", replacement: "\\forall", options: "mA"},
+    {trigger: "fl", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
+    {trigger: "sul", replacement: "\\sum\\limits_{$0}^{$1}$2", options: "mA"},
+    {trigger: "bmx", replacement: "b_{\max}^{S}", options: "mA"},
 ]
