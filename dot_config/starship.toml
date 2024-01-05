@@ -167,7 +167,8 @@ disabled = false
 # Prompt: param 2
 [character]
 error_symbol = "[×](bold red)"
-success_symbol = "(bold red)"
+success_symbol = "[ ](bold red)"
+vimcmd_symbol = "[](blue)"
 
 # SYMBOLS
 [status]

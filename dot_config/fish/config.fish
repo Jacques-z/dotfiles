@@ -150,8 +150,10 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-# Recent installed packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+# color scheme git@github.com:lavigmlj/fish-color-scheme-switcher.git
+scheme set kanagawa
+
+zoxide init fish | source
 
 
 ## Run fastfetch if session is interactive
@@ -166,8 +168,5 @@ alias git="LANG=fr_FR.UTF-8 /usr/bin/git"
 alias remove="/usr/bin/rm"
 alias rm="echo Please use remove command instead"
 
-zoxide init fish | source
-
-function x 
-    xmodmap ~/.xmodmap
-end
+alias dfj fish_default_key_bindings
+alias vji fish_vi_key_bindings
