@@ -78,17 +78,17 @@ $custom\
 $sudo\
 $cmd_duration\
 $line_break\
+[ ]()$character\
 $shell\
 $status\
 $jobs\
 $os\
-$container\
-$character"""
+$container"""
 
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]
-format = " [╭─$user]($style) "
+format = " [╭─](bold red)[$user]($style) "
 show_always = true
 style_root = "bold blue"
 style_user = "bold red"
@@ -155,20 +155,20 @@ style = "bright-white"
 time_format = "%c"
 
 [shell]
-fish_indicator = ""
+fish_indicator = "\u0008"
 powershell_indicator = "_"
 xonsh_indicator = ""
-bash_indicator = "ب"
-format = " [╰─$indicator]($style) "
+bash_indicator = "λ"
+format = "[$indicator]($style) "
 unknown_indicator = "mystery shell"
-style = "bold blue"
+style = "bold red"
 disabled = false
 
 # Prompt: param 2
 [character]
-error_symbol = "[×](bold red)"
-success_symbol = "[ ](bold red)"
-vimcmd_symbol = "[](blue)"
+error_symbol = "[× ](bold red)"
+success_symbol = "[╰─](bold red)"
+vimcmd_symbol = "[ ](purple)"
 
 # SYMBOLS
 [status]
@@ -240,3 +240,6 @@ symbol = " "
 
 [swift]
 symbol = "ﯣ "
+
+[jobs]
+style = "bold red"
