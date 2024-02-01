@@ -1,77 +1,41 @@
-## Set values
-# Hide welcome message
-set fish_greeting
-set VIRTUAL_ENV_DISABLE_PROMPT "1"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx PATH "$HOME/.local/bin" $PATH
+set -gx PATH "/opt/cuda/bin" $PATH
+set -gx GEM_HOME "$HOME/.local/share/gem/ruby/3.0.0/bin"
+set -gx PATH $GEM_HOME $PATH
+# set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-## Export variable need for qt-theme
-if type "qtile" >> /dev/null 2>&1
-   set -x QT_QPA_PLATFORMTHEME "qt5ct"
-end
+set -gx EDITOR nvim
 
-# Set settings for https://github.com/franciscolourenco/done
-set -U __done_min_cmd_duration 10000
-set -U __done_notification_urgency_level low
+fzf_configure_bindings --directory=\cf
+bind \co ranger-cd
 
+alias ls="eza --group-directories-first --icons"
+alias la="eza -l -a --group-directories-first --icons"
+alias lk="eza -l --group-directories-first --icons"
+alias l.="eza -a --group-directories-first --icons | egrep '^\.'"                                     # show only dotfiles
 
-## Environment setup
-# Apply .profile: use this to put fish compatible .profile stuff in
-if test -f ~/.fish_profile
-  source ~/.fish_profile
-end
+alias ra="ranger-cd"
+alias vim="nvim"
+alias df="df -h"
+alias rm="/bin/rm -v > ~/.rm.log"
+alias sys="sudo systemctl"
 
-# Add ~/.local/bin to PATH
-if test -d ~/.local/bin
-    if not contains -- ~/.local/bin $PATH
-        set -p PATH ~/.local/bin
-    end
-end
+alias lg="lazygit"
+alias gs="git status"
+alias gl="git log --graph --full-history --all --color --pretty=tformat:\"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m\""
 
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
-    end
-end
+alias fs="fluidsynth --quiet /usr/share/sounds/sf2/GeneralUser\ GS\ v1.471.sf2"
+alias top="btop"
+alias nvd="watch -n 1 nvidia-smi"
 
+# alias fd="fd -IH"
 
+# ====== Copied from garuda's fish config
 ## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
-
-
-## Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.fish
-
-
-## Functions
-# Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
-function __history_previous_command
-  switch (commandline -t)
-  case "!"
-    commandline -t $history[1]; commandline -f repaint
-  case "*"
-    commandline -i !
-  end
-end
-
-function __history_previous_command_arguments
-  switch (commandline -t)
-  case "!"
-    commandline -t ""
-    commandline -f history-token-search-backward
-  case "*"
-    commandline -i '$'
-  end
-end
-
-if [ "$fish_key_bindings" = fish_vi_key_bindings ];
-  bind -Minsert ! __history_previous_command
-  bind -Minsert '$' __history_previous_command_arguments
-else
-  bind ! __history_previous_command
-  bind '$' __history_previous_command_arguments
+set VIRTUAL_ENV_DISABLE_PROMPT "1"
+if status is-interactive
+    starship init fish | source
+    # source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
 # Fish command history
@@ -95,59 +59,18 @@ function copy
     end
 end
 
-## Useful aliases
-# Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
-alias ip="ip -color"
-
-# Replace some more things with better alternatives
-alias cat='bat --style header --style snip --style changes --style header'
-[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-
-# Common use
-alias grubup="sudo update-grub"
-alias fixpacman="sudo rm /var/lib/pacman/db.lck"
-alias tarnow='tar -acf '
-alias untar='tar -xvf '
-alias wget='wget -c '
-alias rmpkg="sudo pacman -Rdd"
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias upd='/usr/bin/update'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+alias wget='wget -c '
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias hw='hwinfo --short'                          # Hardware Info
-alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages according to size in MB
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
-
-# Get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
-
-# Help people new to Arch
-alias apt='man pacman'
-alias apt-get='man pacman'
-alias please='sudo'
-alias tb='nc termbin.com 9999'
-
-# Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-
-# Get the error messages from journalctl
+alias hw='hwinfo --short'                                   # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
 alias jctl="journalctl -p 3 -xb"
 
 # color scheme git@github.com:lavigmlj/fish-color-scheme-switcher.git
@@ -155,18 +78,40 @@ scheme set kanagawa
 
 zoxide init fish | source
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval /home/lavig/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+alias conda "conda-init; conda"
 
-## Run fastfetch if session is interactive
-if status --is-interactive && type -q fastfetch
-   fastfetch --load-config neofetch
-end
-
-# Custom clipboard
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
-alias git="LANG=fr_FR.UTF-8 /usr/bin/git"
+alias git="LANG=fr_FR.UTF-8 command git"
 alias remove="/usr/bin/rm"
 alias rm="echo Please use remove command instead"
 
+function onlyoffice
+    onlyoffice-desktopeditors (realpath $argv)
+end
+
 alias dfj fish_default_key_bindings
 alias vji fish_vi_key_bindings
+
+function addTodo
+    if test -z $argv
+        read -P "ITEM " item
+    else
+        set -f item $argv
+    end
+    echo "- [ ] $item" >> ~/.(whoami)_todo
+end
+
+function seeTodo
+    grep -v '^- \[x]' ~/.(whoami)_todo | bat
+end
+
+function editTodo
+    vim ~/.(whoami)_todo 
+end
+
+alias ob "obsidian &>/dev/null"
