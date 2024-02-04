@@ -103,7 +103,7 @@ set relativenumber
 
 noremap <leader>z za
 
-" autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+autocmd BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path "%"
  
 ]])
 vim.cmd([[

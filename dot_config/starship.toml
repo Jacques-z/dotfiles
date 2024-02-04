@@ -134,24 +134,30 @@ charging_symbol = ""
 disabled = false
 discharging_symbol = ""
 full_symbol = ""
+unknown_symbol = '󰁽'
+empty_symbol = '󰂎'
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-style = "bold red"
+[[battery.display]]  
+style = "#de83cf"
 threshold = 15
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-style = "bold yellow"
+[[battery.display]] 
+style = "#b57fb3"
 threshold = 50
 
-[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-style = "bold green"
+[[battery.display]] 
+style = "#f8dae2"
+threshold = 95
+
+[[battery.display]] 
+style = "#fdf2f0"
 threshold = 100
 
 # Prompt: optional param 1
 [time]
 disabled = false
-format = "🕙 $time($style) "
-style = "bright-white"
+format = "🕙 [$time]($style) "
+style = "#fadcda"
 time_format = "%c"
 
 [shell]
