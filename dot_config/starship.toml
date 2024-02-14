@@ -1,6 +1,7 @@
 # Which is equivalent to
 format = """
 $username\
+${custom.fish_history}\
 $time\
 $battery\
 $hostname\
@@ -9,6 +10,8 @@ $shlvl\
 $singularity\
 $kubernetes\
 $directory\
+$line_break\
+[ │ ](bold red)\
 $vcsh\
 $fossil_branch\
 $git_branch\
@@ -249,3 +252,9 @@ symbol = "ﯣ "
 
 [jobs]
 style = "bold red"
+
+[custom.fish_history]
+command = "echo $fish_history"
+symbol = " "
+when = "! test -z $FISH_VERSION && ! test -z $fish_history"
+style = "dimmed white"
