@@ -1,6 +1,11 @@
+[^.]*
+[^.]*/**
+**/.git/**
+
+.bash*
+.cargo/**
+.npm/**
+.steam/**
+.steam*/**
 key.txt.age
-chezmoi/
-logs/
-*.log
-*.json.bak
 
